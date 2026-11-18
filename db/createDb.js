@@ -7,7 +7,6 @@ console.log(`Recreating database on ${timestamp}...`);
 
 await db.query('drop table if exists artists');
 await db.query('drop table if exists albums');
-await db.query('drop table if exists media_types');
 await db.query('drop table if exists tracks');
 await db.query('drop table if exists genres');
 await db.query('drop table if exists users');
@@ -104,11 +103,6 @@ await upload(db, 'db/albums.csv',`
     with csv header encoding 'UTF-8'
 `);
 
-await upload(db, 'db/media_types.csv',`
-    copy media_types (media_type_id, name, description, sample_rate, bit_depth, lossless)
-    from stdin
-    with csv header encoding 'UTF-8'
-`);
 
 await upload (db, 'db/tracks.csv',`
     copy tracks (track_id, title, album_id, media_type_id, genre_id, milliseconds, bytes, unit_price)
