@@ -12,7 +12,6 @@ await db.query('drop table if exists genres');
 await db.query('drop table if exists users');
 await db.query('drop table if exists playlists');
 await db.query('drop table if exists playlist_track');
-// TODO: drop tables, if they exist
 
 await db.query(`
     create table artists (
@@ -134,10 +133,6 @@ await upload (db, 'db/playlist_track.csv',`
     with csv header encoding 'UTF-8' 
 `);
 
-
-// TODO: create tables
-
-// TODO: import data from csv files into tables
 
 await db.end();
 console.log('Database successfully recreated.');
