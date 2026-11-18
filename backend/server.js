@@ -6,6 +6,10 @@ const db = pool();
 const port = 3009;
 const server = express();
 
+server.use(express.static('frontend'));
+server.use(onEachRequest);
+server.listen(port, onServerReady);
+
 
 
 
