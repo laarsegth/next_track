@@ -4,9 +4,11 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #fafafa;
+    letter-spacing: -4%;
 }
+
 
 .navbar {
     height: 64px;
@@ -73,6 +75,7 @@ body {
 
 .genres h1 {
     grid-column: 1 / -1;
+    font-weight: bolder;
 }
 
 .genres button {
@@ -84,16 +87,6 @@ body {
 }
 
 .player {
-    background: white;
-    border-left: 2px solid #1259ff;
+    background: #ecede4;
 }
 
-@media (max-width: 700px) {
-    .page { grid-template-columns: 1fr; }
-    .genres { grid-template-columns: repeat(2, 1fr); }
-    .player {
-        min-height: 300px;
-        border-left: 0;
-        border-top: 2px solid #1259ff;
-    }
-}
