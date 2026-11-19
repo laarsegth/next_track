@@ -53,3 +53,47 @@ body {
     font-weight: bold;
     text-decoration: none;
 }
+
+.page {
+    min-height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 56% 44%;
+}
+
+.genres, .player {
+    padding: 50px;
+}
+
+.genres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: start;
+    gap: 12px;
+}
+
+.genres h1 {
+    grid-column: 1 / -1;
+}
+
+.genres button {
+    min-height: 90px;
+    border: 0;
+    border-radius: 12px;
+    background: #eee;
+    font-size: 16px;
+}
+
+.player {
+    background: white;
+    border-left: 2px solid #1259ff;
+}
+
+@media (max-width: 700px) {
+    .page { grid-template-columns: 1fr; }
+    .genres { grid-template-columns: repeat(2, 1fr); }
+    .player {
+        min-height: 300px;
+        border-left: 0;
+        border-top: 2px solid #1259ff;
+    }
+}
