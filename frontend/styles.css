@@ -136,3 +136,12 @@ body {
     background-color: #e9e3c9;
     color: black;
 }
+
+
+
+  .afspiller {
+    width: 100%;
+    height: 60px;
+    border-radius: 0;
+    color: #a92222;
+}
