@@ -3,8 +3,6 @@
 }
 
 body {
-    height: 100vh;
-    overflow: hidden;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #fafafa;
@@ -75,12 +73,16 @@ body {
     grid-template-columns: repeat(3, 1fr);
     align-content: start;
     gap: 12px;
+    line-height: 1;
+    margin: 0 -12px;
 }
 
 .genres h1 {
     grid-column: 1 / -1;
     font-weight: bolder;
 }
+.genres h1:first-of-type  { margin-bottom: -12px; } 
+.genres h1:nth-of-type(2) { margin-bottom: 30px; }
 
 .genres button {
     min-height: 90px;
@@ -138,6 +140,8 @@ body {
     background-color: #e9e3c9;
     color: black;
 }
+
+
 
   .afspiller {
     width: 100%;
