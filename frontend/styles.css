@@ -11,6 +11,11 @@ body {
     font-weight: 300;
 }
 
+.intro {
+    grid-column: 1 / -1;
+    padding-bottom: 50px;
+}
+
 
 .navbar {
     height: 64px;
@@ -77,11 +82,23 @@ body {
     margin: 0 -12px;
 }
 
+.genre-heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
 .genres h1 {
     grid-column: 1 / -1;
     font-weight: bolder;
-    
 }
+
+.genres h2 {
+    grid-column: 1 / -1;
+    margin: 0 0 10px 0;
+    font-weight: 350px;
+}
+
+
+
 .genres h1:first-of-type  { 
     margin-bottom: -25px; 
 } 
@@ -101,10 +118,18 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .player {
     background: #ecede4;
+}
+
+.player h1 {
+    font-family: inherit;
+    letter-spacing: inherit;
+    padding-bottom: inherit;
+    font-weight: inherit;
 }
 
 .player-bar {
@@ -158,5 +183,11 @@ body {
 
 button:hover {
     cursor: pointer;
-    opacity: 80%;
+    filter:brightness(95%);
+}
+
+.genres button:active {
+    filter: brightness(92%);
+    transform: scale(98%);
+
 }
