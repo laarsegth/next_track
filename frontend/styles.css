@@ -155,3 +155,8 @@ body {
     border-radius: 0;
     color: #a92222;
 }
+
+button:hover {
+    cursor: pointer;
+    opacity: 80%;
+}
