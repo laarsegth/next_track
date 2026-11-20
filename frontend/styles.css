@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+/* Overordnet CSS der gælder på det meste af siden*/
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -11,12 +12,13 @@ body {
     font-weight: 300;
 }
 
-.intro {
-    grid-column: 1 / -1;
-    padding-bottom: 50px;
+.page {
+    min-height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 56% 44%;
 }
 
-
+/* Her starter CSS på vores bar i toppen*/
 .navbar {
     height: 64px;
     display: flex;
@@ -63,12 +65,21 @@ body {
     text-decoration: none;
 }
 
-.page {
-    min-height: calc(100vh - 64px);
-    display: grid;
-    grid-template-columns: 56% 44%;
+
+/* Her er vores "overskrifter"*/
+.intro {
+    grid-column: 1 / -1;
+    padding-bottom: 50px;
+    margin: 0;
 }
 
+.intro h1 {
+    margin: 0;
+    line-height: 1.3;
+}
+
+
+/* Her begynder CSS på vores genre knapper*/
 .genres, .player {
     padding: 50px;
 }
@@ -97,16 +108,6 @@ body {
     font-weight: 350px;
 }
 
-
-
-.genres h1:first-of-type  { 
-    margin-bottom: -25px; 
-} 
-
-.genres h1:nth-of-type(2) {
-    margin-bottom: 30;
-}
-
 .genres button {
     min-height: 90px;
     border: 0;
@@ -119,27 +120,6 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.player {
-    background: #ecede4;
-}
-
-.player h1 {
-    font-family: inherit;
-    letter-spacing: inherit;
-    padding-bottom: inherit;
-    font-weight: inherit;
-}
-
-.player-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 70px;
-    background: white;
-    border-top: 1px solid #eee;
 }
 
 .electronic {
@@ -172,16 +152,7 @@ body {
     color: black;
 }
 
-
-
-  .afspiller {
-    width: 100%;
-    height: 60px;
-    border-radius: 0;
-    color: #a92222;
-}
-
-button:hover {
+.genres button:hover {
     cursor: pointer;
     filter:brightness(95%);
 }
@@ -191,3 +162,57 @@ button:hover {
     transform: scale(98%);
 
 }
+
+/* Her begynder CSS på vores player/højre side*/
+.player {
+    background: #ecede4;
+}
+
+.player h1 {
+    font-family: inherit;
+    letter-spacing: inherit;
+    padding-bottom: inherit;
+    font-weight: inherit;
+}
+
+.player-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 70px;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+.genre-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-top: 25px;
+    border-radius: 16px;
+    background-color: #d9d9d9;
+
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.genre-image img {
+    width: 60%;
+    height: auto;
+    display: block;
+}
+
+.genre-image span {
+    color: #777;
+    font-size: 18px;
+}
+
+/* Vores afspiller i bunden*/
+.afspiller {
+    width: 100%;
+    height: 60px;
+    border-radius: 0;
+    color: #a92222;
+}
+

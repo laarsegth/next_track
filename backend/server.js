@@ -7,6 +7,7 @@ const port = 3009;
 const server = express();
 
 server.use(express.static('frontend'));
+server.use('/images', express.static('images'));
 server.use(onEachRequest);
 server.listen(port, onServerReady);
 
