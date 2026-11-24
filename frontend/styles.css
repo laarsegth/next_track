@@ -247,6 +247,35 @@ body {
     font-weight: bold;
 }
 
+.vote-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.genres .vote-actions button {
+    display: block;
+    min-height: 46px;
+    padding: 10px 16px;
+    border: 2px solid #2949ed;
+    font-size: 16px;
+    text-align: center;
+}
+
+.vote-button {
+    flex: 2 1 160px;
+    background: #2949ed;
+    color: #fff;
+}
+
+.vibe-button {
+    flex: 1 1 140px;
+    background: transparent;
+    color: #2949ed;
+}
+
 /* Her begynder CSS på vores player/højre side*/
 .player {
     background: #ecede4;
