@@ -34,10 +34,12 @@
             <span class="check-circle"></span>
         </button> 
 
-        <button class="jazz genre-button">
-            <span class="genre-title">Jazz</span>
-            <span class="check-circle"></span>
-        </button>
+    
+ <button class="jazz genre-button" onclick="SkiftCover('jazz.png')">
+    <span class="genre-title">Jazz</span>
+    <span class="check-circle"></span>
+</button>
+
 
         <button class="hiphop genre-button">
             <span class="genre-title">Hip-hop</span>
@@ -89,6 +91,12 @@
         <audio class="player-controls" controls src="demo.wav" preload="metadata" aria-label="Afspilning af lydprøve"></audio>
     </footer>
     
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
+<script>
+function SkiftCover(billede) {
+    document.getElementById("genre-cover").src = "/images/" + billede;
+}
+</script>
 </body>
 </html>
