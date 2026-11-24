@@ -28,47 +28,47 @@
 
         <h2>Hvad har i lyst til?</h2>
 
-        <button class="electronic genre-button">
+        <button type="button" class="electronic genre-button" data-cover="elektronisk.png" aria-pressed="false">
             <span class="genre-title">Elektronisk</span>
             <span class="check-circle"></span>
         </button> 
 
-        <button class="jazz genre-button">
+        <button type="button" class="jazz genre-button" data-cover="jazz.png" aria-pressed="false">
             <span class="genre-title">Jazz</span>
             <span class="check-circle"></span>
         </button>
 
-        <button class="hiphop genre-button">
+        <button type="button" class="hiphop genre-button" data-cover="hiphop.png" aria-pressed="false">
             <span class="genre-title">Hip-hop</span>
             <span class="check-circle"></span>
         </button>
 
-        <button class="indie genre-button">
+        <button type="button" class="indie genre-button" data-cover="indie.png" aria-pressed="false">
             <span class="genre-title">Indie</span>
             <span class="check-circle"></span>
         </button>
 
-        <button class="pop genre-button">
+        <button type="button" class="pop genre-button" data-cover="pop.png" aria-pressed="false">
             <span class="genre-title">Pop</span>
             <span class="check-circle"></span>
         </button>
 
-        <button class="soul genre-button">
+        <button type="button" class="soul genre-button" data-cover="soul.png" aria-pressed="false">
             <span class="genre-title">Soul</span>
             <span class="check-circle"></span>
         </button>
 
-        <button class="rock genre-button">
+        <button type="button" class="rock genre-button" aria-pressed="false">
             <span class="genre-title">Rock</span>
             <span class="check-circle"></span>
         </button>
 
-        <button class="klassisk genre-button">
+        <button type="button" class="klassisk genre-button" aria-pressed="false">
             <span class="genre-title">Klassisk</span>
             <span class="check-circle"></span>
         </button>
 
-        <button class="udforsk genre-button">
+        <button type="button" class="udforsk genre-button" aria-pressed="false">
             <span class="genre-title">Udforsk</span>
             <span class="check-circle"></span>
         </button>
@@ -84,7 +84,8 @@
             <h1>Læn jer tilbage.</h1> 
 
         <div class="genre-image">
-            <img id="genre-cover" src="/images/elektronisk.png" alt="Genre cover">
+            <img id="genre-cover" src="/images/elektronisk.png" alt="Cover til Elektronisk">
+            <span id="genre-cover-label" hidden></span>
         </div>
         </aside>
     </main>
@@ -93,5 +94,6 @@
         <audio class="player-controls" controls src="demo.wav" preload="metadata" aria-label="Afspilning af lydprøve"></audio>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

@@ -224,7 +224,7 @@ body {
 }
 
 /* Når knappen er valgt */
-.genre-button.selected {
+.genre-button[aria-pressed="true"] {
     background-color: #2949ed !important;
     color: white;
 }
@@ -235,12 +235,12 @@ body {
     visibility: visible;
 }
 
-.genre-button.selected .check-circle {
+.genre-button[aria-pressed="true"] .check-circle {
     border-color: transparent;
 }
 
 /* Fluebenet */
-.genre-button.selected .check-circle::after {
+.genre-button[aria-pressed="true"] .check-circle::after {
     content: "✓";
     color: white;
     font-size: 24px;
@@ -302,7 +302,7 @@ body {
     overflow: hidden;
 }
 
-.genre-image img {
+.genre-image img:not([hidden]) {
     width: 70%;
     height: auto;
     display: block;
