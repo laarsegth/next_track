@@ -20,6 +20,14 @@ await db.query(`
 `);
 
 await db.query(`
+    create table genres (
+        genre_id          integer primary key,
+        name              text,
+        description       text
+    )
+`);
+
+await db.query(`
     create table albums (
         album_id           integer primary key,
         artist_id          integer references artists(artist_id),
@@ -43,13 +51,7 @@ await db.query(`
     )
 `);
 
-await db.query(`
-    create table genres (
-        genre_id          integer primary key,
-        name              text,
-        description       text
-    )
-`);
+
 
 await db.query(`
     create table users (
@@ -67,6 +69,13 @@ await upload(db, 'db/artists.csv',`
     from stdin
     with csv encoding 'UTF-8'  
      `);
+     
+await upload (db, 'db/genres.csv',`
+   copy genres (name, genre_id, description)
+   from stdin
+   with csv encoding 'UTF-8' 
+`);
+
 
 await upload(db, 'db/albums.csv',`
     copy albums (album_id, title, artist_id, release_date, riaa_certificate)
@@ -81,11 +90,6 @@ await upload (db, 'db/tracks.csv',`
     with csv header encoding 'win-1252'
 `);
 
-await upload (db, 'db/genres.csv',`
-   copy genres (name, genre_id, description)
-   from stdin
-   with csv encoding 'UTF-8' 
-`);
 
 await upload (db, 'db/users.csv',`
     copy users (user_id, screen_name, email, active, signed_up)
