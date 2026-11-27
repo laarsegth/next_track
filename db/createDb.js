@@ -5,90 +5,62 @@ const db = await connect();
 const timestamp = (await db.query('select now() as timestamp')).rows[0]['timestamp'];
 console.log(`Recreating database on ${timestamp}...`);
 
-await db.query('drop table if exists artists');
-await db.query('drop table if exists albums');
 await db.query('drop table if exists tracks');
+await db.query('drop table if exists albums');
 await db.query('drop table if exists genres');
 await db.query('drop table if exists users');
-await db.query('drop table if exists playlists');
-await db.query('drop table if exists playlist_track');
+await db.query('drop table if exists artists');
 
 await db.query(`
     create table artists (
-        artist_id   integer,
-        stage_name  text,
-        nationality char(2)
+        artist_id          integer primary key,
+        stage_name         text,
+        nationality        char(2)
     )
 `);
 
 await db.query(`
     create table albums (
-        album_id           integer,
-        artist_id          integer,
-        release_date        date,
-        title               text,
-        riaa_certificate    text
+        album_id           integer primary key,
+        artist_id          integer references artists(artist_id),
+        release_date       date,
+        title              text,
+        riaa_certificate   text
 
     )
 `);
 
 await db.query(`
-    create table media_types (
-        media_type_id integer,
-        bit_depth     integer,
-        sample_rate   real,
-        lossless      boolean,
-        name          text,
-        description   text
-    )
- `);
-
-await db.query(`
     create table tracks (
-        track_id        integer,
-        album_id        integer,
-        media_type_id   integer,
-        genre_id        integer,
-        milliseconds     integer,
-        bytes           bigint,
-        unit_price      numeric (10, 2),
-        title           text
+        track_id          integer primary key,
+        album_id          integer references albums(album_id),
+        media_type_id     integer,
+        genre_id          integer references genres(genre_id),
+        milliseconds      integer,
+        bytes             bigint,
+        unit_price        numeric (10, 2),
+        title             text
     )
 `);
 
 await db.query(`
     create table genres (
-        genre_id    integer,
-        name        text,
-        description text
+        genre_id          integer primary key,
+        name              text,
+        description       text
     )
 `);
 
 await db.query(`
     create table users (
-        user_id     bigint,
-        signed_up   timestamp,
-        active      boolean,
-        screen_name text,
-        email       text    
+        user_id           integer primary key,
+        signed_up         timestamp,
+        active            boolean,
+        screen_name       text,
+        email             text    
     )
 `);
 
-await db.query(`
-    create table playlists(
-        playlist_id bigint,
-        user_id   bigint,  
-        created   timestamp,
-        name      text 
-    )
-`);
-
-await db.query(`
-    create table playlist_track (
-        playlist_id bigint,
-        track_id    integer
-    )
-`);
 
 await upload(db, 'db/artists.csv',`
     copy artists (artist_id, stage_name, nationality)
@@ -121,17 +93,6 @@ await upload (db, 'db/users.csv',`
     with csv encoding 'UTF-8'
 `);
 
-await upload (db, 'db/playlists.csv',`
-    copy playlists (playlist_id, created, user_id, name)
-    from stdin
-    with csv header encoding 'UTF-8'
-`);
-
-await upload (db, 'db/playlist_track.csv',`
-    copy playlist_track (playlist_id, track_id)
-    from stdin
-    with csv header encoding 'UTF-8' 
-`);
 
 
 await db.end();
